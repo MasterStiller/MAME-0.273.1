@@ -78,8 +78,7 @@ void h8gen_dma_device::start_stop_test()
 
 		} else {
 			if(m_dmach[i >> 1] && (m_dmach[i >> 1]->m_state[i & 1].m_flags & h8_dma_state::ACTIVE)) {
-				logerror("forced abort %d\n", i);
-				exit(0);
+				logerror("%s: forced abort %d\n", machine().describe_context(), i);
 			}
 		}
 	}
