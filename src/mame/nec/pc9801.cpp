@@ -847,6 +847,8 @@ void pc9801vm_state::pc9801rs_a0_w(offs_t offset, uint8_t data)
 			pal4bit(m_analog16.g[m_analog16.pal_entry]),
 			pal4bit(m_analog16.b[m_analog16.pal_entry])
 		);
+		// lemmings raster effects
+		m_screen->update_partial(m_screen->vpos());
 		return;
 	}
 
@@ -855,10 +857,14 @@ void pc9801vm_state::pc9801rs_a0_w(offs_t offset, uint8_t data)
 
 void pc9801vm_state::egc_w(offs_t offset, uint16_t data, uint16_t mem_mask)
 {
-	if(!(m_egc.regs[1] & 0x6000) || (offset != 4)) // why?
-		COMBINE_DATA(&m_egc.regs[offset]);
+	if((m_egc.regs[1] & 0x6000) && (offset == 4)) // why?
+		return;
+	COMBINE_DATA(&m_egc.regs[offset]);
 	switch(offset)
 	{
+		case 4:
+			m_egc.mask = bitswap<16>(m_egc.regs[4],8,9,10,11,12,13,14,15,0,1,2,3,4,5,6,7);
+			break;
 		case 2:
 		case 6:
 		case 7:
@@ -1062,9 +1068,21 @@ void pc9801vm_state::dma_access_ctrl_w(offs_t offset, u8 data)
 
 // ARTIC device
 
+/*
+ * [0] read bits 15-0 of the counter device
+ * [1] read bits 23-8 of the counter device
+ *
+ * FreeDOS(98) Kernel will test [1] a whole lot during HMA allocation
+ */
 uint16_t pc9801vm_state::timestamp_r(offs_t offset)
 {
-	return (m_maincpu->total_cycles() >> (16 * offset));
+	return (m_maincpu->total_cycles() >> (8 * offset));
+}
+
+void pc9801vm_state::artic_wait_w(u8 data)
+{
+	// 0.6 μsec
+	m_maincpu->spin_until_time(attotime::from_nsec(600));
 }
 
 uint8_t pc9801vm_state::midi_r()
@@ -1103,7 +1121,8 @@ void pc9801vm_state::pc9801ux_io(address_map &map)
 	pc9801_common_io(map);
 	map(0x0020, 0x002f).w(FUNC(pc9801vm_state::dmapg8_w)).umask16(0xff00);
 //  map(0x0050, 0x0057).noprw(); // 2dd ppi?
-	map(0x005c, 0x005f).r(FUNC(pc9801vm_state::timestamp_r)).nopw(); // artic
+	map(0x005c, 0x005f).r(FUNC(pc9801vm_state::timestamp_r)); // artic
+	map(0x005f, 0x005f).w(FUNC(pc9801vm_state::artic_wait_w));
 	map(0x0068, 0x006b).w(FUNC(pc9801vm_state::pc9801rs_video_ff_w)).umask16(0x00ff); //mode FF / <undefined>
 	map(0x0070, 0x007f).rw(FUNC(pc9801vm_state::grcg_r), FUNC(pc9801vm_state::grcg_w)).umask16(0x00ff); //display registers "GRCG" / i8253 pit
 	map(0x0090, 0x0090).r(m_fdc_2hd, FUNC(upd765a_device::msr_r));
@@ -1925,6 +1944,7 @@ static void pc9801_cbus_devices(device_slot_interface &device)
 //  Spark Board
 	device.option_add("amd98",      AMD98);
 	device.option_add("mpu_pc98",   MPU_PC98);
+	device.option_add("sb16",       SB16_CT2720);
 
 	// doujinshi HW
 // MAD Factory / Doujin Hard (同人ハード)
@@ -2029,6 +2049,7 @@ MACHINE_START_MEMBER(pc9801vm_state,pc9801rs)
 	save_item(NAME(m_egc.leftover));
 	save_item(NAME(m_egc.first));
 	save_item(NAME(m_egc.start));
+	save_item(NAME(m_egc.mask));
 
 	save_item(NAME(m_grcg.mode));
 	save_item(NAME(m_vram_bank));
@@ -2361,12 +2382,12 @@ void pc9801_state::pc9801_common(machine_config &config)
 	SCREEN(config, m_screen, SCREEN_TYPE_RASTER);
 	m_screen->set_raw(21.0526_MHz_XTAL, 848, 0, 640, 440, 0, 400);
 	m_screen->set_screen_update(FUNC(pc9801_state::screen_update));
-	m_screen->screen_vblank().set(FUNC(pc9801_state::vrtc_irq));
 
 	UPD7220(config, m_hgdc[0], 21.0526_MHz_XTAL / 8, "screen");
 	m_hgdc[0]->set_addrmap(0, &pc9801_state::upd7220_1_map);
 	m_hgdc[0]->set_draw_text(FUNC(pc9801_state::hgdc_draw_text));
 	m_hgdc[0]->vsync_wr_callback().set(m_hgdc[1], FUNC(upd7220_device::ext_sync_w));
+	m_hgdc[0]->vsync_wr_callback().append(FUNC(pc9801_state::vrtc_irq));
 
 	UPD7220(config, m_hgdc[1], 21.0526_MHz_XTAL / 8, "screen");
 	m_hgdc[1]->set_addrmap(0, &pc9801_state::upd7220_2_map);
