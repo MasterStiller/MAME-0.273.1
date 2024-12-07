@@ -15225,6 +15225,9 @@ blktigerm
 @source:capcom/cbasebal.cpp
 cbasebal                        // 10/1989 (c) 1989 Capcom (Japan) (different hardware)
 
+@source:capcom/chakumelo.cpp
+chakumel
+
 @source:capcom/commando.cpp
 commando                        // 5/1985 (c) 1985 (World)
 commandob                       // bootleg
@@ -16138,7 +16141,13 @@ pb1000                          // Casio PB-1000
 pb2000c                         // Casio PB-2000C
 
 @source:casio/pickytlk.cpp
-pickytlk                        // Casio Picky Talk
+jd363                           // Casio Picky Talk - Super Denshi Techou
+jd364                           // Casio Color Picky Talk - Super Denshi Techou
+jd368                           // Casio Super Picky Talk - Access Pet
+mk300                           // Casio Plet's (MK-300)
+mk350                           // Casio Plet's (MK-350)
+pickydis                        // Tsukuda Original Disney Characters - Tegaki Electronic Note
+pickytlk                        // Casio Super Picky Talk - Forest of Gurutan
 
 @source:casio/pv1000.cpp
 pv1000                          // Casio PV-1000
@@ -20171,6 +20180,7 @@ lucky8j                         // 199?, hack
 lucky8k                         // (c) 1989 Wing. With CPU NEC D315-5136
 lucky8l                         // (c) 1989 Wing Co. Ltd
 lucky8m                         // (c) 1989 Wing Co. Ltd
+lucky8n                         // (c) 1989 Wing Co. Ltd
 luckybar                        // unknown
 luckylad                        // (c) 1985 Wing Co. Ltd
 magodds                         // 198? (c) Micro Manufacturing Ltd.
@@ -20646,6 +20656,7 @@ drw80pkr                        // (c) 1982 IGT
 
 @source:igt/gkigt.cpp
 bmoonii                         //
+brhino                          //
 dblheart                        //
 gkigt4                          //
 gkigt43                         //
@@ -20655,13 +20666,26 @@ gkigt5p                         //
 gkigtez                         //
 gkigtezms                       //
 gkkey                           //
+igtmg133                        //
+igtmg156                        //
+igtmg159                        //
+igtmg164                        //
+igtmg166                        //
+igtmg214                        //
+igtmg247                        //
+igtmg394                        //
+igtmg535                        //
 igtsc                           //
+igtvp                           //
 ms14                            //
 ms3                             //
 ms5                             //
 ms72c                           //
+munsters                        //
 mystjag                         //
+sup8race                        //
 tripplay                        // (c) 1999 IGT
+wofigt                          //
 
 @source:igt/peplus.cpp
 im1p1952                        // (c) 1995 IGT - International Game Technology
@@ -24874,6 +24898,7 @@ prmrsocr                        // GX101 (c) 1993 (Europe)
 prmrsocrj                       // GX101 (c) 1993 (Japan)
 punkshot                        // GX907 (c) 1990 (US)
 punkshot2                       // GX907 (c) 1990 (US)
+punkshot2a                      // GX907 (c) 1990 (Asia)
 punkshot2e                      // GX907 (c) 1990 (World)
 punkshotj                       // GX907 (c) 1990 (Japan)
 qgakumon                        // GX248 (c) 1993 (Japan)
@@ -35452,6 +35477,9 @@ popper                          // (c) 1983 Omori Electric Co., Ltd.
 @source:omori/spaceg.cpp
 spaceg                          // (c) 19??
 
+@source:omori/yakyuken.cpp
+yakyuken
+
 @source:omron/luna_68k.cpp
 luna                            // Omron Luna
 
@@ -42369,6 +42397,9 @@ evolhh
 @source:skeleton/extrema_m27sv.cpp
 multgmxl
 
+@source:skeleton/falconun.cpp
+falconun
+
 @source:skeleton/fanucs15.cpp
 fanucs15                        // 1990
 
@@ -42413,9 +42444,6 @@ goupilg2                        //
 
 @source:skeleton/grfd2301.cpp
 grfd2301                        //
-
-@source:skeleton/guchokipa.cpp
-guchokip
 
 @source:skeleton/happyvideo.cpp
 hppyvideo                       //
@@ -42628,6 +42656,9 @@ mycom                           //
 386i                            // 199?
 ngen                            // 1983
 ngenb38                         // 1991
+
+@source:skeleton/nordlead.cpp
+nordle2x                        // 2003
 
 @source:skeleton/onyx.cpp
 c5000                           // 1981
@@ -42886,6 +42917,9 @@ vector3                         //
 
 @source:skeleton/vectrix.cpp
 vectrix                         // (c) 19?? Olympia?
+
+@source:skeleton/venteta.cpp
+venteta
 
 @source:skeleton/vgame.cpp
 hilice                          //
@@ -47200,7 +47234,6 @@ astrowar                        // (c) 1980
 galaxia                         // (c) 1979
 galaxiaa                        // (c) 1979
 galaxiab                        // (c) 1979
-galaxiac                        // (c) 1979
 
 @source:zaccaria/laserbat.cpp
 catnmous                        // (c) 1982
