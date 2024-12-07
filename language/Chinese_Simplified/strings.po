@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-18 05:29+1100\n"
 "PO-Revision-Date: 2024-11-09 20:56+0800\n"
-"Last-Translator: 缘来是你\n"
+"Last-Translator: 缘来是你 & lanyer\n"
 "Language-Team: MAME Language Team\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -1779,7 +1779,7 @@ msgstr "按下键盘按键、摇杆按钮或选择要覆盖的存档"
 
 #: src/frontend/mame/ui/confswitch.cpp:318
 msgid "DIP Switches"
-msgstr "机台设置"
+msgstr "指拨开关"
 
 #: src/frontend/mame/ui/confswitch.cpp:521
 msgid "Machine Configuration"
@@ -2236,17 +2236,17 @@ msgstr "图标"
 #: src/frontend/mame/ui/dirmenu.cpp:56
 msgctxt "path-option"
 msgid "Control Panels"
-msgstr "机台图"
+msgstr "操控台"
 
 #: src/frontend/mame/ui/dirmenu.cpp:57
 msgctxt "path-option"
 msgid "Cabinets"
-msgstr "框体图 (cabinets)"
+msgstr "框体图"
 
 #: src/frontend/mame/ui/dirmenu.cpp:58
 msgctxt "path-option"
 msgid "Marquees"
-msgstr "贴画 (marquees)"
+msgstr "贴画"
 
 #: src/frontend/mame/ui/dirmenu.cpp:59
 msgctxt "path-option"
@@ -2271,7 +2271,7 @@ msgstr "游戏结局"
 #: src/frontend/mame/ui/dirmenu.cpp:63
 msgctxt "path-option"
 msgid "Bosses"
-msgstr "关底"
+msgstr "关底头目"
 
 #: src/frontend/mame/ui/dirmenu.cpp:64
 msgctxt "path-option"
@@ -2281,7 +2281,7 @@ msgstr "装饰图预览"
 #: src/frontend/mame/ui/dirmenu.cpp:65
 msgctxt "path-option"
 msgid "Select"
-msgstr "选角"
+msgstr "角色选择"
 
 #: src/frontend/mame/ui/dirmenu.cpp:66
 msgctxt "path-option"
@@ -2296,7 +2296,7 @@ msgstr "说明图"
 #: src/frontend/mame/ui/dirmenu.cpp:68
 msgctxt "path-option"
 msgid "Logos"
-msgstr "标题图"
+msgstr "徽标"
 
 #: src/frontend/mame/ui/dirmenu.cpp:69
 msgctxt "path-option"
