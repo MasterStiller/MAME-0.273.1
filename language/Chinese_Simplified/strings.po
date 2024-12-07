@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-18 05:29+1100\n"
 "PO-Revision-Date: 2024-11-09 20:56+0800\n"
-"Last-Translator: 缘来是你 & lanyer\n"
+"Last-Translator: 缘来是你，lanyer\n"
 "Language-Team: MAME Language Team\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -2665,7 +2665,7 @@ msgstr "背景"
 #: src/frontend/mame/ui/custui.cpp:634
 msgctxt "color-option"
 msgid "DIP switch"
-msgstr "机台设置"
+msgstr "指拨开关"
 
 #: src/frontend/mame/ui/custui.cpp:635
 msgctxt "color-option"
@@ -2929,7 +2929,7 @@ msgstr "输入设置"
 #: src/frontend/mame/ui/mainmenu.cpp:118
 msgctxt "menu-main"
 msgid "DIP Switches"
-msgstr "机台设置"
+msgstr "指拨开关"
 
 #: src/frontend/mame/ui/mainmenu.cpp:120
 msgctxt "menu-main"
@@ -3078,7 +3078,7 @@ msgstr "框体图"
 #: src/frontend/mame/ui/selmenu.cpp:85
 msgctxt "selmenu-artwork"
 msgid "Control Panel"
-msgstr "机台图"
+msgstr "操控台"
 
 #: src/frontend/mame/ui/selmenu.cpp:86
 msgctxt "selmenu-artwork"
@@ -3108,12 +3108,12 @@ msgstr "装饰图预览"
 #: src/frontend/mame/ui/selmenu.cpp:91
 msgctxt "selmenu-artwork"
 msgid "Bosses"
-msgstr "关底"
+msgstr "关底头目"
 
 #: src/frontend/mame/ui/selmenu.cpp:92
 msgctxt "selmenu-artwork"
 msgid "Logo"
-msgstr "标题图"
+msgstr "徽标"
 
 #: src/frontend/mame/ui/selmenu.cpp:93
 msgctxt "selmenu-artwork"
@@ -3138,7 +3138,7 @@ msgstr "得分"
 #: src/frontend/mame/ui/selmenu.cpp:97
 msgctxt "selmenu-artwork"
 msgid "Select"
-msgstr "选角"
+msgstr "角色选择"
 
 #: src/frontend/mame/ui/selmenu.cpp:98
 msgctxt "selmenu-artwork"
